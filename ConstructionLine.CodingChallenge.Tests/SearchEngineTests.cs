@@ -10,12 +10,7 @@ namespace ConstructionLine.CodingChallenge.Tests
         [Test]
         public void Test()
         {
-            var shirts = new List<Shirt>
-            {
-                new Shirt(Guid.NewGuid(), "Red - Small", Size.Small, Color.Red),
-                new Shirt(Guid.NewGuid(), "Black - Medium", Size.Medium, Color.Black),
-                new Shirt(Guid.NewGuid(), "Blue - Large", Size.Large, Color.Blue),
-            };
+            var shirts = CreateShirtRange();
 
             var searchEngine = new SearchEngine(shirts);
 
@@ -35,15 +30,10 @@ namespace ConstructionLine.CodingChallenge.Tests
         [Test]
         public void GivenANullSearchRequest_WhenICallSearch_AnExceptionIsThrown()
         {
-            var shirts = new List<Shirt>
-            {
-                new Shirt(Guid.NewGuid(), "Small Yellow", Size.Small, Color.Yellow),
-                new Shirt(Guid.NewGuid(), "Small White", Size.Small, Color.White),
-                new Shirt(Guid.NewGuid(), "Large Blue", Size.Large, Color.Blue),
-                new Shirt(Guid.NewGuid(), "Medium Blue", Size.Medium, Color.Blue),
-            };
-
+            var shirts  = CreateShirtRange();
+            
             var searchEngine = new SearchEngine(shirts);
+            
             Assert.Throws<ArgumentNullException>(() => searchEngine.Search(null));
         }
 

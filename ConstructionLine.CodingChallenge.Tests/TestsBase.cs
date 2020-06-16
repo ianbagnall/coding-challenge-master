@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
@@ -68,6 +69,28 @@ namespace ConstructionLine.CodingChallenge.Tests
                 Assert.That(colorCount.Count, Is.EqualTo(expectedColorCount),
                     $"Color count for '{colorCount.Color.Name}' showing '{colorCount.Count}' should be '{expectedColorCount}'");
             }
+        }
+
+        protected static List<Shirt> CreateShirtRange()
+        {
+            return new List<Shirt>()
+            {
+                new Shirt(Guid.NewGuid(), "Small Yellow", Size.Small, Color.Yellow),
+                new Shirt(Guid.NewGuid(), "Medium Yellow", Size.Medium, Color.Yellow),
+                new Shirt(Guid.NewGuid(), "Large Yellow", Size.Large, Color.Yellow),
+                new Shirt(Guid.NewGuid(), "Small White", Size.Small, Color.White),
+                new Shirt(Guid.NewGuid(), "Medium White", Size.Medium, Color.White),
+                new Shirt(Guid.NewGuid(), "Large White", Size.Large, Color.White),
+                new Shirt(Guid.NewGuid(), "Small Red", Size.Small, Color.Red),
+                new Shirt(Guid.NewGuid(), "Medium Red", Size.Medium, Color.Red),
+                new Shirt(Guid.NewGuid(), "Large Red", Size.Large, Color.Red),
+                new Shirt(Guid.NewGuid(), "Small Blue", Size.Small, Color.Blue),
+                new Shirt(Guid.NewGuid(), "Medium Blue", Size.Medium, Color.Blue),
+                new Shirt(Guid.NewGuid(), "Large Blue", Size.Large, Color.Blue),
+                new Shirt(Guid.NewGuid(), "Small Black", Size.Small, Color.Black),
+                new Shirt(Guid.NewGuid(), "Medium Black", Size.Medium, Color.Black),
+                new Shirt(Guid.NewGuid(), "Large Black", Size.Large, Color.Black),
+            };
         }
     }
 }

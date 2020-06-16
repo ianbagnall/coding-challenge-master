@@ -10,14 +10,9 @@ namespace ConstructionLine.CodingChallenge.Tests
         [Test]
         public void GivenASearchRequestForBlueShirts_WhenICallSearch_TheyAreReturned()
         {
-            var shirts = new List<Shirt>
-            {
-                new Shirt(Guid.NewGuid(), "Small Yellow", Size.Small, Color.Yellow),
-                new Shirt(Guid.NewGuid(), "Medium Red", Size.Medium, Color.Red),
-                new Shirt(Guid.NewGuid(), "Large Blue", Size.Large, Color.Blue),
-            };
+            var shirts = CreateShirtRange();
 
-            var shirtFinder = new LinqShirtFinder(shirts);
+            var shirtFinder = new LinqShirtFinder(CreateShirtRange());
 
             var searchOptions = new SearchOptions()
             {
@@ -37,12 +32,7 @@ namespace ConstructionLine.CodingChallenge.Tests
         [Test]
         public void GivenASearchRequestForSmallRedShirts_WhenICallSearch_TheyAreReturned()
         {
-            var shirts = new List<Shirt>
-            {
-                new Shirt(Guid.NewGuid(), "Small Yellow", Size.Small, Color.Yellow),
-                new Shirt(Guid.NewGuid(), "Small Red", Size.Small, Color.Red),
-                new Shirt(Guid.NewGuid(), "Large Blue", Size.Large, Color.Blue),
-            };
+            var shirts = CreateShirtRange();
 
             var shirtFinder = new LinqShirtFinder(shirts);
 
@@ -62,13 +52,7 @@ namespace ConstructionLine.CodingChallenge.Tests
         [Test]
         public void GivenASearchRequestForSmallOrLargeAndRedOrBlueShirts_WhenICallSearch_TheyAreReturned()
         {
-            var shirts = new List<Shirt>
-            {
-                new Shirt(Guid.NewGuid(), "Small Yellow", Size.Small, Color.Yellow),
-                new Shirt(Guid.NewGuid(), "Small Red", Size.Small, Color.Red),
-                new Shirt(Guid.NewGuid(), "Large Blue", Size.Large, Color.Blue),
-                new Shirt(Guid.NewGuid(), "Medium Blue", Size.Medium, Color.Blue),
-            };
+            var shirts = CreateShirtRange();
 
             var shirtFinder = new LinqShirtFinder(shirts);
 
@@ -114,13 +98,7 @@ namespace ConstructionLine.CodingChallenge.Tests
         [Test]
         public void GivenAnEmptySearchRequestWhenThereAreShirtsAvailable_WhenICallSearch_NoneAreReturned()
         {
-            var shirts = new List<Shirt>
-            {
-                new Shirt(Guid.NewGuid(), "Small Yellow", Size.Small, Color.Yellow),
-                new Shirt(Guid.NewGuid(), "Small White", Size.Small, Color.White),
-                new Shirt(Guid.NewGuid(), "Large Blue", Size.Large, Color.Blue),
-                new Shirt(Guid.NewGuid(), "Medium Blue", Size.Medium, Color.Blue),
-            };
+            var shirts = CreateShirtRange();
 
             var shirtFinder = new LinqShirtFinder(shirts);
 
@@ -158,13 +136,7 @@ namespace ConstructionLine.CodingChallenge.Tests
         [Test]
         public void GivenANullSearchRequest_WhenICallSearch_AnExceptionIsThrown()
         {
-            var shirts = new List<Shirt>
-            {
-                new Shirt(Guid.NewGuid(), "Small Yellow", Size.Small, Color.Yellow),
-                new Shirt(Guid.NewGuid(), "Small White", Size.Small, Color.White),
-                new Shirt(Guid.NewGuid(), "Large Blue", Size.Large, Color.Blue),
-                new Shirt(Guid.NewGuid(), "Medium Blue", Size.Medium, Color.Blue),
-            };
+            var shirts = CreateShirtRange();
 
             var shirtFinder = new LinqShirtFinder(shirts);
             Assert.Throws<ArgumentNullException>(() => shirtFinder.Find(null));
@@ -173,13 +145,7 @@ namespace ConstructionLine.CodingChallenge.Tests
         [Test]
         public void GivenANullSizeInSearchRequest_WhenICallSearch_AnExceptionIsThrown()
         {
-            var shirts = new List<Shirt>
-            {
-                new Shirt(Guid.NewGuid(), "Small Yellow", Size.Small, Color.Yellow),
-                new Shirt(Guid.NewGuid(), "Small White", Size.Small, Color.White),
-                new Shirt(Guid.NewGuid(), "Large Blue", Size.Large, Color.Blue),
-                new Shirt(Guid.NewGuid(), "Medium Blue", Size.Medium, Color.Blue),
-            };
+            var shirts = CreateShirtRange();
 
             var shirtFinder = new LinqShirtFinder(shirts);
 
@@ -195,13 +161,7 @@ namespace ConstructionLine.CodingChallenge.Tests
         [Test]
         public void GivenANullColorInSearchRequest_WhenICallSearch_AnExceptionIsThrown()
         {
-            var shirts = new List<Shirt>
-            {
-                new Shirt(Guid.NewGuid(), "Small Yellow", Size.Small, Color.Yellow),
-                new Shirt(Guid.NewGuid(), "Small White", Size.Small, Color.White),
-                new Shirt(Guid.NewGuid(), "Large Blue", Size.Large, Color.Blue),
-                new Shirt(Guid.NewGuid(), "Medium Blue", Size.Medium, Color.Blue),
-            };
+            var shirts = CreateShirtRange();
 
             var shirtFinder = new LinqShirtFinder(shirts);
 
